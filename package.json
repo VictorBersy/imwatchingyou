@@ -1,0 +1,14 @@
+{
+  "name": "ImWatchingYou",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "start": "node imwatchingyou.js"
+  },
+  "dependencies": {
+    "mongoose": "3.6.*",
+    "ntwitter": "0.5.*",
+    "http-get": "0.5.*",
+    "colors": "*"
+  }
+}
