@@ -44,7 +44,7 @@ You have to create an application on [dev.twitter.com](https://dev.twitter.com/)
 Run
 ===
 
-    node imwatchingyou.js    
+    npm start    
 
 
 You can create a screen (screen -S imwatchingyou) to run it on background. 
