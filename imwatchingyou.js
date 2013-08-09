@@ -10,23 +10,26 @@ var cfg = require('./config')
 db.db.on('error', console.error.bind(console, 'connection error:'));
 db.db.once('open', function callback () { // It's ok, so we start the stream from Twitter
 	console.log('Mongoose : OK'.green);
-	checkCredentials();
-	initStream();
-});
-
-function checkCredentials() {
+	
 	twit.verifyCredentials(function (err, data) {
-		var welcomeMessage = 'Logged as ' + data.name + ' (' + data.screen_name + ')';
-		console.log(welcomeMessage.cyan);
+		if (err) {
+			console.error(err);
+		}
+		else {
+			var welcomeMessage = 'Logged as ' + data.name + ' (' + data.screen_name + ')';
+			console.log(welcomeMessage.cyan);
+
+			initStream();
+		}
 	});
-}
+});
 
 function initStream () {
 	twit.stream('user', {'with':'followings'}, function(stream) {
 		console.log('Stream : OK'.green);
 		console.log('Waiting for a new tweet !'.green);
 		stream.on('data', function (data) {
-			if(data.text !== undefined) {
+			if (data.text !== undefined) {
 				displayStream(data);
 				saveStream(data);
 			}
@@ -35,7 +38,7 @@ function initStream () {
 }
 
 function displayStream(data) {
-	if (data.entities.media != undefined) {
+	if (data.entities.media !== undefined) {
 		console.log("[Media detected !]".rainbow + ' ' + data.user.screen_name.green + ': ' + data.text.red);
 	}
 	else {
@@ -48,7 +51,7 @@ function saveStream(data) {
 	tweet.save(function (err, tweet) {
 	  if (err) {}// TODO handle the error
 	});
-	if (data.entities.media != undefined) {
+	if (data.entities.media !== undefined) {
 		saveMedia(data.entities.media, data.user);
 	}
 }
@@ -63,7 +66,8 @@ function saveMedia(medias, user) {
 		http.get(mediaLink, path, function (error, result) { // Function to save this image
 			if (error) {
 				console.error(error.red);
-			} else {
+			}
+			else {
 				console.log('File downloaded at: ' + result.file.green);
 			}
 		});
