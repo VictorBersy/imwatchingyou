@@ -13,23 +13,26 @@ First, clone this repo :
 
     git clone git@github.com:VictorBersy/imwatchingyou.git
 
-Move in this folder and install dependencies with : 
+Move in this folder and install dependencies with [NPM](https://npmjs.org/) :
 
-    npm install ntwitter colors mongoose http-get fs path
-
+    npm install
 
 Config
 ======
 
 You've two files to edit :
-config.js and twitter_keys.json
+config.json
 
 ### config.js
 Edit this line with your host and your database :
-
-    mongoose.connect('mongodb://localhost/imwatchingyou');
-
-### keys_twitter.json
+By default, mongoose will connect to mongodb://localhost/imwatchingyou/
+If you want to overide this setting, edit this line :
+````
+{
+    "database": {
+        "url": "mongodb://localhost/imwatchingyou"
+    },
+````
 
 You have to create an application on [dev.twitter.com](https://dev.twitter.com/) and copy paste your keys here :
 ````
@@ -44,12 +47,16 @@ You have to create an application on [dev.twitter.com](https://dev.twitter.com/)
 Run
 ===
 
-    npm start    
+    npm start
 
 
-You can create a screen (screen -S imwatchingyou) to run it on background. 
+Note : You can create a screen (screen -S imwatchingyou) to run it on background. 
 
 Bugs
 ====
 
 * The script stops randomly, I'm investigating. 
+
+Contributors
+============
+VictorBersy, Sepsten
