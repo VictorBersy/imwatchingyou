@@ -59,17 +59,34 @@ function saveStream(data) {
 function saveMedia(medias, user) {
 	medias.forEach(function (media) { // foreach medias posted
 		var mediaLink = media.media_url_https + ':large'; // we add :large to get a better quality
-		var path_folder = cfg.basePath + user.screen_name + '/';
-		fs.mkdir(path_util.normalize(path_folder));
-		var path = path_util.normalize(path_folder + media.id_str + '.jpg');
+		var path_folder = path_util.join(cfg.basePath || 'pictures', user.screen_name);
 
-		http.get(mediaLink, path, function (error, result) { // Function to save this image
-			if (error) {
-				console.error(error.red);
+		fs.exists(path_folder, function(exists) {
+			if(!exists) {
+				fs.mkdir(path_folder, function(err) {
+					if(err) {
+						console.error(err.red);
+					}
+					else {
+						download();
+					}
+				});
 			}
 			else {
-				console.log('File downloaded at: ' + result.file.green);
+				download();
 			}
 		});
+
+		function download() {
+			var path = path_util.join(path_folder, media.id_str + '.jpg');
+			http.get(mediaLink, path, function (error, result) { // Function to save this image
+				if (error) {
+					console.error(error.red);
+				}
+				else {
+					console.log('File downloaded at: ' + result.file.green);
+				}
+			});
+		}
 	});
 }
