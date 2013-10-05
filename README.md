@@ -61,5 +61,5 @@ Note : You can create a screen (screen -S imwatchingyou) to run it on background
 
 Contributors
 ============
-[VictorBersy](http://github.com/VictorBersy)
-[Sepsten](http://github.com/sepsten)
+* [VictorBersy](http://github.com/VictorBersy)
+* [Sepsten](http://github.com/sepsten)
