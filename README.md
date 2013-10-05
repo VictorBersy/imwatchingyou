@@ -32,7 +32,7 @@ First, you have to create an application on [dev.twitter.com](https://dev.twitte
 ````
 
 Then, edit this line with your host and your database :
-By default, mongoose will connect to mongodb://localhost/imwatchingyou/
+By default, mongoose will connect to `mongodb://localhost/imwatchingyou/`
 If you want to overide this setting, edit this line :
 ````
 {
