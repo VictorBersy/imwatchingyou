@@ -19,3 +19,5 @@ node_modules
 * text=auto
 
 # ImWatchingYou
+config/Config.json
+pictures/
