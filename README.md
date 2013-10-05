@@ -2,7 +2,6 @@ What is it ?
 ============
 
 ImWatchingYou saves every tweet and picture uploaded on pic.twitter.com in a database and a specific folder.
-This is my first project with NodeJS and Mongoose, it's a bit messy, I'll do my best to tidy it. 
 
 Install
 =======
@@ -11,7 +10,7 @@ You need to install MongoDB to use this script. Report to [the documentation.](h
 
 First, clone this repo :
 
-    git clone git@github.com:VictorBersy/imwatchingyou.git
+    git clone https://github.com/VictorBersy/imwatchingyou.git
 
 Move in this folder and install dependencies with [NPM](https://npmjs.org/) :
 
@@ -20,21 +19,9 @@ Move in this folder and install dependencies with [NPM](https://npmjs.org/) :
 Config
 ======
 
-You've two files to edit :
-config.json
+You must edit config/example.Config.json
 
-### config.js
-Edit this line with your host and your database :
-By default, mongoose will connect to mongodb://localhost/imwatchingyou/
-If you want to overide this setting, edit this line :
-````
-{
-    "database": {
-        "url": "mongodb://localhost/imwatchingyou"
-    },
-````
-
-You have to create an application on [dev.twitter.com](https://dev.twitter.com/) and copy paste your keys here :
+First, you have to create an application on [dev.twitter.com](https://dev.twitter.com/) and copy paste your keys here :
 ````
 {
     "consumer_key":        "YOUR_CONSUMER_TOKEN",
@@ -44,6 +31,26 @@ You have to create an application on [dev.twitter.com](https://dev.twitter.com/)
 }
 ````
 
+Then, edit this line with your host and your database :
+By default, mongoose will connect to `mongodb://localhost/imwatchingyou/`
+If you want to overide this setting, edit this line :
+````
+{
+    "mongo": {
+        "url_database": "mongodb://localhost/imwatchingyou"
+    },
+````
+
+You can change the directory to save pictures.
+By default, it will create a folder at the root of the application called "pictures"
+If you want to change it : 
+````
+{
+    "basePath": "/path/to/your/folder/"
+}
+````
+
+
 Run
 ===
 
@@ -52,11 +59,7 @@ Run
 
 Note : You can create a screen (screen -S imwatchingyou) to run it on background. 
 
-Bugs
-====
-
-* The script stops randomly, I'm investigating. 
-
 Contributors
 ============
-VictorBersy, Sepsten
+* [VictorBersy](http://github.com/VictorBersy)
+* [Sepsten](http://github.com/sepsten)
