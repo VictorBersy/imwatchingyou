@@ -41,12 +41,12 @@ function initStream () {
 		stream.on('end', function (response) {
 			console.log("Disconnection detected. Initializing a new stream...")
 			console.log(response.red);
-  			initStream();
+  			checkTwitterOk();
 		});
 		stream.on('destroy', function (response) {
 			console.log("Silent disconnection detected. Initializing a new stream...")
 			console.log(response.red);
-  			initStream();
+  			checkTwitterOk();
 		});
 	});
 }
