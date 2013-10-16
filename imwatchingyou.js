@@ -53,6 +53,8 @@ function initStream () {
 			console.log(response.red);
   			checkTwitterOk();
 		});
+		// Disconnect every 30 minutes (more or less) to reset the stream
+		setTimeout(stream.destroy, 1000 * 60 * 30);
 	});
 }
 
