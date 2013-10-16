@@ -48,6 +48,11 @@ function initStream () {
 			console.log(response.red);
   			checkTwitterOk();
 		});
+		stream.on('error', function (response) {
+			console.log("Error detected. Initializing a new stream...")
+			console.log(response.red);
+  			checkTwitterOk();
+		});
 	});
 }
 
