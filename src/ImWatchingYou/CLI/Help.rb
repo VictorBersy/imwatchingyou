@@ -2,9 +2,9 @@ module ImWatchingYou
   class Help
     def self.display_help
       imwatchingyou_help = <<-EOS
-      Usage: ./imwatchingyou [OPTION]
-        -c, --configure          configure imwatchingyou with Twitter API keys
-        -h, --help               display this message
+Usage: ./imwatchingyou [OPTION]
+  -c, --configure          configure imwatchingyou with Twitter API keys
+  -h, --help               display this message
       EOS
       puts imwatchingyou_help
     end
