@@ -15,7 +15,7 @@ module ImWatchingYou
     end
     
     def config
-
+      Config::config_keys
     end
 
     def help
