@@ -1,0 +1,8 @@
+#!/bin/sh
+RUBY_SYSTEM=$(uname -s | tr "[:upper:]" "[:lower:]")
+if [ "$RUBY_SYSTEM" = "darwin" ]
+then
+        exec "../src/imwatchingyou.rb" "$@"
+else
+        exec ruby -W0 "../src/imwatchingyou.rb" "$@"
+fi
