@@ -1,7 +1,6 @@
 module ImWatchingYou
   class Detector
     def initialize(args)
-      pp args
       @args = args
       case args.first
       when "-h", "--help", "help"
@@ -20,11 +19,11 @@ module ImWatchingYou
     end
 
     def help
-
+      Help::display_help
     end
 
     def something_wrong
-
+      Help::display_something_wrong
     end
 
     def launch
