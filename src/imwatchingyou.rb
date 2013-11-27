@@ -8,5 +8,9 @@ require 'ImWatchingYou/CLI/Help'
 require 'ImWatchingYou/CLI/Config'
 
 module ImWatchingYou
-  Detector.new(ARGV)
+  unless ARGV.first.nil?
+    Detector.new(ARGV)
+  else
+    pp "Launcher"
+  end
 end

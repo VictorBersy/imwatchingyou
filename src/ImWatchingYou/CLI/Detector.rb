@@ -7,8 +7,6 @@ module ImWatchingYou
         self.help
       when "-c" , "--configure", "configure"
         self.config
-      when nil
-        self.launch
       else
         self.something_wrong
       end
@@ -24,10 +22,6 @@ module ImWatchingYou
 
     def something_wrong
       Help::display_something_wrong
-    end
-
-    def launch
-
     end
   end
 end
