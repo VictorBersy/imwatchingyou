@@ -1,12 +1,9 @@
 module ImWatchingYou
   class Launcher
     def self.start
+      # Stream::get_stream.user() do |message|
       Stream::get_stream.user(:replies => 'all') do |message|
-        if message.is_a?(Twitter::Tweet)
-          tweet = message
-          viewer = Viewer.new(tweet)
-          viewer.display
-        end
+        Handler.new(message)
       end
     end
   end
