@@ -52,7 +52,8 @@ module ImWatchingYou
       #   "target_object": TARGET_OBJECT,
       #   "created_at": "Sat Sep 4 16:10:54 +0000 2010"
       # }
-      puts prefix + event
+      prefix      = self.create_prefix("event")
+      puts prefix + "event (Not handled yet)"
     end
 
     def self.friend_list(friend_list)
