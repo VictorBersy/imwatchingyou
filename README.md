@@ -21,6 +21,10 @@ Config
 
 # TODO
 
+TODO
+====
+
+* Display events in console
 
 Run
 ===
