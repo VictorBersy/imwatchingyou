@@ -25,6 +25,7 @@ TODO
 ====
 
 * Display events in console
+* Add a way to specify informations about DB connection
 
 Run
 ===
