@@ -8,7 +8,11 @@ module ImWatchingYou
     def identify(message)
       case message
       when Twitter::Tweet
-        Viewer::tweet(message)
+        if message[:deleted]
+          Viewer::deleted_tweet(message)
+        else
+          Viewer::tweet(message)
+        end
       when Twitter::DirectMessage
         Viewer::direct_message(message)
       when Twitter::Streaming::Event

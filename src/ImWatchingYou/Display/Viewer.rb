@@ -6,6 +6,8 @@ module ImWatchingYou
       case type
       when "tweet"
         color = "green"
+      when "deleted_tweet"
+        color = "red"
       when "direct_message"
         color = "magenta"
       when "event"
@@ -26,6 +28,16 @@ module ImWatchingYou
 
       # ██@PSEUDO [REAL_NAME]: This is a tweet
       puts prefix + screen_name + name + text
+    end
+
+    def self.deleted_tweet(deleted_tweet)
+      # Twitter::Tweet
+      # https://dev.twitter.com/docs/streaming-apis/messages#Status_deletion_notices_delete
+      prefix   = self.create_prefix("deleted_tweet")
+      id_tweet = deleted_tweet[:id].to_s.foreground(:cyan)
+
+      # ██ tweet XXX deleted
+      puts prefix + "tweet " + id_tweet + " deleted" 
     end
 
     def self.direct_message(direct_message)
